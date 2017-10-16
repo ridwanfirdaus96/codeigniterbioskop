@@ -1,2 +1,0 @@
-# codeigniterbioskop
-bioskop web
