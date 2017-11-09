@@ -1,0 +1,484 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+session_start(); //we need to call PHP's session object to access it through CI
+class controllerAuthorized extends CI_Controller {
+
+ function __construct()
+    {
+        parent::__construct();
+ 
+        /* Standard Libraries of codeigniter are required */
+        $this->load->database();
+        $this->load->helper('url');
+        /* ------------------ */ 
+ 
+        $this->load->library('grocery_CRUD');
+ 
+    }
+	
+	
+	
+	
+	
+	
+	/* ## Fungsi untuk generate item number dan deskripsi */
+	function createItemNumber($post_array){
+			$kode_brg = $_POST['kode_brg'];
+			$param1 = $_POST['param1'];
+			$param2 = $_POST['param2'];
+			$param3 = $_POST['param3'];
+			$param4 = $_POST['param4'];
+			
+			$jenis_brg = $_POST['jenis_brg'];
+			$desk_p1 = $_POST['desk_p1'];
+			$desk_p2 = $_POST['desk_p2'];
+			$desk_p3 = $_POST['desk_p3'];
+			$desk_p4 = $_POST['desk_p4'];
+			
+	    if((empty($post_array['item_number']))&&(empty($post_array2['desk_item_number']))){
+	        $post_array['item_number'] = $kode_brg.'-'.$param1.''.$param2.''.$param3.''.$param4;
+			$post_array['desk_item_number'] = $jenis_brg.', '.$desk_p1.''.$desk_p2.''.$$desk_p3.''.$desk_p4;
+	    }
+	    return $post_array;
+	}
+	
+	/* ## Fungsi untuk generate deskripsi item number dan user comment */
+	function createDeskUser($post_array){
+			$desk_item_number = $_POST['desk_item_number'];
+			$user_comment = $_POST['user_comment'];
+			
+	    if(empty($post_array['desk_item_number_user'])){
+	        $post_array['desk_item_number_user'] = $desk_item_number.'('.$user_comment.')';
+	    }
+	    return $post_array;
+	}
+	
+	/* ## Fungsi untuk merubah warna ketika jumlah karakter tidak sesuai */
+	function limitColor20($value, $row){
+		$jumStr=strlen($value);
+			if($jumStr<=20){
+				$hasil = $value;
+			}
+			else{
+				$kalimat1 = substr($value,0,20);
+				$selisih = $jumStr-20;
+				$kalimat2 = substr($value,20,$selisih);
+				$hasil = '<b>'.$kalimat1.'</b><span style="color:red">'.$kalimat2.'</span>';
+			}
+		return $hasil/*'<span style="color:red">'.$hasil.'<span>'*/;
+	}
+	function limitColor100($value, $row){
+		$jumStr=strlen($value);
+			if($jumStr<=100){
+				$hasil = '<b>'.$value.'</b>';
+			}
+			else{
+				$kalimat1 = substr($value,0,100);
+				$selisih = $jumStr-100;
+				$kalimat2 = substr($value,100,$selisih);
+				$hasil = '<b>'.$kalimat1.'</b><span style="color:red">'.$kalimat2.'</span>';
+			}
+		return $hasil/*'<span style="color:red">'.$hasil.'<span>'*/;
+	}
+	
+	
+	
+	
+	
+	
+	/* ## Fungsi untuk merubah inputan password dan mengosongkannya */
+	function set_password_input_to_empty(){
+	    return '<input type="password" name="password" value="" />';
+	}
+	
+	/* ## Fungsi untuk enkripsi password */
+	function encrypt_password($post_array, $primary_key = null)
+    {
+	    $this->load->helper('security');
+	    $post_array['password'] = do_hash($post_array['password'], 'md5');
+	    return $post_array;
+    }
+	
+	
+	
+	
+	
+		/* ## Fungsi untuk mengosongkan data pada field --> desk_item_number_user */
+		function set_desk_item_number_user_to_empty() {
+		    return "<input type='hidden' name='desk_item_number_user' value='' />";
+		}
+	
+		/* ## Fungsi untuk mengosongkan data pada field --> item_number dan desk_item_number */
+		function set_item_number_to_empty() {
+		    return "<input type='hidden' name='item_number' value='' />";
+		}
+		function set_desk_item_number_to_empty() {
+		    return "<input type='hidden' name='desk_item_number' value='' />";
+		}
+		
+		
+		
+		
+		
+	/* ## FUNGSI YG DIPAKAI PADA CONTROLLER OPERATOR ======================================================================*/
+		/* ## merubah tampilan form add pada fungsi INDEX*/
+		function add_kode_brg(){
+			return '<input type="text" name="kode_brg"> <font color="red"><i><small>Contoh : 001B, 001S, 011B, dll.</small></i></font>';
+		}
+		function add_param1(){
+			return '<input type="text" name="param1""> <font color="red"><i><small>Contoh Parameter : Jenis, Ah, Volt, Tipe, Warna, dll.</small></i></font>';
+		}
+		function add_desk_p1(){
+			return '<input type="text" name="desk_p1"> <font color="red"><i><small>Contoh Deskriptsi : 1%/0.25 W.</small></i></font>';
+		}
+		function add_param2(){
+			return '<input type="text" name="param2"> <font color="red"><i><small>Contoh Parameter : Jenis, Ah, Volt, Tipe, Warna, dll.</small></i></font>';
+		}
+		function add_desk_p2(){
+			return '<input type="text" name="desk_p2"> <font color="red"><i><small>Contoh Deskriptsi : 1%/0.25 W.</small></i></font>';
+		}
+		function add_param3(){
+			return '<input type="text" name="param3"> <font color="red"><i><small>Contoh Parameter : Jenis, Ah, Volt, Tipe, Warna, dll.</small></i></font>';
+		}
+		function add_desk_p3(){
+			return '<input type="text" name="desk_p3"> <font color="red"><i><small>Contoh Deskriptsi : 1%/0.25 W.</small></i></font>';
+		}
+		function add_param4(){
+			return '<input type="text" name="param4"> <font color="red"><i><small>Contoh Parameter : Jenis, Ah, Volt, Tipe, Warna, dll.</small></i></font>';
+		}
+		function add_desk_p4(){
+			return '<input type="text" name="desk_p4"> <font color="red"><i><small>Contoh Deskriptsi : 1%/0.25 W.</small></i></font>';
+		}
+		
+		/* ## Merubah tampilan form update pada fungsi INDEX*/
+			function update_kode_brg($value, $primary_key){
+				return '<input type="text" name="kode_brg" value="'.$value.'"> <font color="red"><i><small>Contoh : 001B, 001S, 011B, dll.</small></i></font>';
+			}
+			function update_param1($value, $primary_key){
+				return '<input type="text" name="param1" value="'.$value.'"> <font color="red"><i><small>Contoh Parameter : Jenis, Ah, Volt, Tipe, Warna, dll.</small></i></font>';
+			}
+			function update_desk_p1($value, $primary_key){
+				return '<input type="text" name="desk_p1" value="'.$value.'"> <font color="red"><i><small>Contoh Deskriptsi : 1%/0.25 W.</small></i></font>';
+			}
+			function update_param2($value, $primary_key){
+				return '<input type="text" name="param2" value="'.$value.'"> <font color="red"><i><small>Contoh Parameter : Jenis, Ah, Volt, Tipe, Warna, dll.</small></i></font>';
+			}
+			function update_desk_p2($value, $primary_key){
+				return '<input type="text" name="desk_p2" value="'.$value.'"> <font color="red"><i><small>Contoh Deskriptsi : 1%/0.25 W.</small></i></font>';
+			}
+			function update_param3($value, $primary_key){
+				return '<input type="text" name="param3" value="'.$value.'"> <font color="red"><i><small>Contoh Parameter : Jenis, Ah, Volt, Tipe, Warna, dll.</small></i></font>';
+			}
+			function update_desk_p3($value, $primary_key){
+				return '<input type="text" name="desk_p3" value="'.$value.'"> <font color="red"><i><small>Contoh Deskriptsi : 1%/0.25 W.</small></i></font>';
+			}
+			function update_param4($value, $primary_key){
+				return '<input type="text" name="param4" value="'.$value.'"> <font color="red"><i><small>Contoh Parameter : Jenis, Ah, Volt, Tipe, Warna, dll.</small></i></font>';
+			}
+			function update_desk_p4($value, $primary_key){
+				return '<input type="text" name="desk_p4" value="'.$value.'"> <font color="red"><i><small>Contoh Deskriptsi : 1%/0.25 W.</small></i></font>';
+			}
+			
+			
+			
+			
+			
+			
+		/* ## FUNGSI YG DIPAKAI PADA CONTROLLER OPERATOR ======================================================================*/
+			
+			/* ## merubah tampilan form add pada fungsi OPERATOR*/
+			function add_item_number(){
+				return '<input type="text" name="item_number"> <font color="red"><i><small>Copy-Paste data dari TABEL ITEM NUMBER</small></i></font>';
+			}
+			function add_desk_item_number(){
+				return '<input type="text" name="desk_item_number""> <font color="red"><i><small>Copy-Paste data dari TABEL ITEM NUMBER</small></i></font>';
+			}
+			function add_user_comment(){
+				return '<input type="text" name="user_comment"> <font color="red"><i><small>Jika ada tambahan, isikan difield ini</small></i></font>';
+			}
+		
+			/* ## Merubah tampilan form update pada fungsi OPERATOR*/
+			function update_item_number($value, $primary_key){
+				return '<input type="text" name="item_number" value="'.$value.'"> <font color="red"><i><small>Copy-Paste data dari TABEL ITEM NUMBER</small></i></font>';
+			}
+			function update_desk_item_number($value, $primary_key){
+				return '<input type="text" name="desk_item_number" value="'.$value.'"> <font color="red"><i><small>Copy-Paste data dari TABEL ITEM NUMBER</small></i></font>';
+			}
+			function update_user_comment($value, $primary_key){
+				return '<input type="text" name="user_comment" value="'.$value.'"> <font color="red"><i><small>Jika ada tambahan, isikan difield ini</small></i></font>';
+			}
+	
+	
+	/*==============================================================================================================*/
+		
+	 public function index(){
+	   if($this->session->userdata('logged_in')) {
+	     $session_data = $this->session->userdata('logged_in');
+		 	/*$data['username'] = $session_data['username'];
+		     $this->load->view('viewAuthorized', $data);*/
+			
+			/* ## Filter user menggunakan username */
+			if($session_data['username']=='admin'){
+
+		 	$crud = new grocery_CRUD();
+			/*$crud->set_theme('datatables');*/
+			$crud->set_table('tbl_utama')
+				 ->set_subject('Data Gudang')
+				 ->columns('kode_brg','jenis_brg','param1','desk_p1','param2','desk_p2','param3','desk_p3','param4','desk_p4','item_number','desk_item_number')
+				 			
+				//DATA PENAMAAN ALIAS TABLE
+		   		 ->display_as('kode_brg','Kode Barang')
+				 ->display_as('jenis_brg','Jenis Barang')
+				 ->display_as('param1','Parameter-1')
+				 	->display_as('desk_p1','Deskripsi Parameter-1')
+				 ->display_as('param2','Parameter-2')
+				 	->display_as('desk_p2','Deskripsi Parameter-2')
+				 ->display_as('param3','Parameter-3')
+				 	->display_as('desk_p3','Deskripsi Parameter-3')
+				 ->display_as('param4','Parameter-4')
+				 	->display_as('desk_p4','Deskripsi Parameter-4')
+				 ->display_as('item_number','Item Number')
+				 ->display_as('desk_item_number','Deskripsi Item Number')
+			
+				//DATA TABEL RELASI
+				/*->set_relation('kode_brg','tbl_kode_jenis','kode_brg') */
+				->set_relation('jenis_brg','tbl_jenis_brg','jenis_brg') 
+				 
+					 /*->set_relation('kode_brg','tbl_kode_jenis','{kode_brg} - {jenis_brg}')*/
+					 /*->set_relation('kode_lokasi','tbl_parameter','kode_lokasi')
+					 ->set_relation('kode_supp','tbl_supplier','nama_supp')*/
+
+					 /*->field_type('field1','dropdown',
+	           					 array('1' => 'active', '2' => 'private','3' => 'spam' , '4' => 'deleted'))*/
+								 
+				 ->fields('kode_brg','jenis_brg','param1','desk_p1','param2','desk_p2','param3','desk_p3','param4','desk_p4','item_number','desk_item_number')				 
+				 ->field_type('item_number', 'hidden', '')
+				 ->field_type('desk_item_number', 'hidden', '')
+				 ->required_fields('kode_brg','jenis_brg')
+				 
+				 ->callback_add_field('kode_brg',array($this,'add_kode_brg'))
+				 ->callback_add_field('param1',array($this,'add_param1'))
+				 ->callback_add_field('desk_p1',array($this,'add_desk_p1'))
+				 ->callback_add_field('param2',array($this,'add_param2'))
+				 ->callback_add_field('desk_p2',array($this,'add_desk_p2'))
+				 ->callback_add_field('param3',array($this,'add_param3'))
+				 ->callback_add_field('desk_p3',array($this,'add_desk_p3'))
+				 ->callback_add_field('param4',array($this,'add_param4'))
+				 ->callback_add_field('desk_p4',array($this,'add_desk_p4'))
+					 ->callback_edit_field('kode_brg',array($this,'update_kode_brg'))
+					 ->callback_edit_field('param1',array($this,'update_param1'))
+					 ->callback_edit_field('desk_p1',array($this,'update_desk_p1'))
+					 ->callback_edit_field('param2',array($this,'update_param2'))
+					 ->callback_edit_field('desk_p2',array($this,'update_desk_p2'))
+					 ->callback_edit_field('param3',array($this,'update_param3'))
+					 ->callback_edit_field('desk_p3',array($this,'update_desk_p3'))
+					 ->callback_edit_field('param4',array($this,'update_param4'))
+					 ->callback_edit_field('desk_p4',array($this,'update_desk_p4'))
+				 
+				 ->callback_edit_field('item_number',array($this,'set_item_number_to_empty'))
+				 ->callback_edit_field('desk_item_number',array($this,'set_desk_item_number_to_empty'))
+				 
+				 ->callback_column('item_number',array($this,'limitColor20'))
+				 ->callback_column('desk_item_number',array($this,'limitColor100'))
+				 
+				 ->callback_before_insert(array($this,'createItemNumber'))
+				 ->callback_before_update(array($this,'createItemNumber'));
+				 
+				 	/*$crud->callback_add_field('field2',array($this,'add_field_callback_1'))*/
+				 
+		    $output = $crud->render();
+		    $this->groceryOutput($output); 
+			}//End if filter user
+			else{
+				//Jika bukan user admin
+	     		redirect('controllerAuthorized/tabel_operator', 'refresh');
+			}
+	   }
+	   else{
+	     //If no session, redirect to login page
+	     redirect('controllerLogin', 'refresh');
+	   }
+	 }
+	
+	public function tabel_jenis_brg(){
+		if($this->session->userdata('logged_in')){
+	     	$session_data = $this->session->userdata('logged_in');
+			
+			/* ## Filter user menggunakan username */
+			if($session_data['username']=='admin'){
+			
+		        $crud = new grocery_CRUD();
+		    	$crud->set_table('tbl_jenis_brg')
+					 ->set_subject('Tambahkan Data Jenis Barang')
+		    		 ->columns('id','jenis_brg')
+					 ->display_as('id','No.')
+					 ->display_as('jenis_brg','Jenis Barang')
+					 
+					 ->fields('jenis_brg')
+					 ->required_fields('jenis_brg');
+		 
+		    	$output = $crud->render();
+		    	$this->groceryOutput($output);
+			}//End if filter user
+			else{
+				//Jika bukan user admin
+	     		redirect('controllerAuthorized/tabel_operator', 'refresh');
+			}  
+		}
+	   	else{
+	     //If no session, redirect to login page
+	     redirect('controllerLogin', 'refresh');
+	   	}
+	}
+	
+	public function tabel_item_desk(){
+		if($this->session->userdata('logged_in')){	
+	     	$session_data = $this->session->userdata('logged_in');
+			
+			/* ## Filter user menggunakan username */
+			if(($session_data['username']=='admin')||($session_data['username']=='operator')){
+		 
+		        $crud = new grocery_CRUD();
+		    	$crud->set_table('tbl_utama')
+					 ->set_subject('Tambahkan Data')
+		    		 ->columns('kode_brg','jenis_brg','item_number','desk_item_number')
+					 ->display_as('kode_brg','Kode Barang')
+					 ->display_as('jenis_brg','Jenis Barang')
+					 ->display_as('item_number','Item Number')
+					 ->display_as('desk_item_number','Deskripsi Item Number')
+					 
+					 ->fields('item_number','desk_item_number','user_comment')
+					 ->required_fields('item_number','desk_item_number')
+					 
+					 ->callback_column('item_number',array($this,'limitColor20'))
+					 ->callback_column('desk_item_number',array($this,'limitColor100'))
+					 
+					 ->unset_add()
+					 ->unset_edit()
+					 ->unset_delete();
+		 
+		    	$output = $crud->render();
+		    	$this->groceryOutputGeneral($output);  
+			}//End if filter user
+			else{
+				//Jika bukan user admin
+	     		redirect('controllerLogin', 'refresh');
+			}
+		}
+	   	else{
+	     //If no session, redirect to login page
+	     redirect('controllerLogin', 'refresh');
+	   	}
+	}
+	
+	public function tabel_operator(){
+		if($this->session->userdata('logged_in')){	
+	     	$session_data = $this->session->userdata('logged_in');
+			
+			/* ## Filter user menggunakan username */
+			if(($session_data['username']=='admin')||($session_data['username']=='operator')){
+		 
+		        $crud = new grocery_CRUD();
+		    	$crud->set_table('tbl_operator')
+					 ->set_subject('Tambahkan Data')
+		    		 ->columns('id','item_number','desk_item_number','user_comment','desk_item_number_user')
+					 ->display_as('id','No.')
+					 ->display_as('item_number','Item Number')
+					 ->display_as('desk_item_number','Deskripsi Item Number')
+					 ->display_as('user_comment','Catatan User')
+					 ->display_as('desk_item_number_user','Deskripsi Item Number (USER)')
+					 
+					 ->fields('item_number','desk_item_number','user_comment','desk_item_number_user')
+					 ->field_type('desk_item_number_user', 'hidden', '')
+					 ->required_fields('item_number','desk_item_number')
+					 
+					 ->callback_add_field('item_number',array($this,'add_item_number'))
+					 ->callback_add_field('desk_item_number',array($this,'add_desk_item_number'))
+					 ->callback_add_field('user_comment',array($this,'add_user_comment'))
+					 	->callback_edit_field('item_number',array($this,'update_item_number'))
+						->callback_edit_field('desk_item_number',array($this,'update_desk_item_number'))
+						->callback_edit_field('user_comment',array($this,'update_user_comment'))
+					 
+					 ->callback_edit_field('desk_item_number_user',array($this,'set_desk_item_number_user_to_empty'))
+					 
+					 ->callback_column('desk_item_number_user',array($this,'limitColor100'))
+					 
+					 ->callback_before_insert(array($this,'createDeskUser'))
+					 ->callback_before_update(array($this,'createDeskUser'));
+		 
+		    	$output = $crud->render();
+		    	$this->groceryOutputFrame($output); 
+			}//End if filter user
+			else{
+				//Jika bukan user admin
+	     		redirect('controllerLogin', 'refresh');
+			}
+		}
+	   	else{
+	     //If no session, redirect to login page
+	     redirect('controllerLogin', 'refresh');
+	   	}
+	}
+	
+	public function tabel_users(){
+		if($this->session->userdata('logged_in')){	
+	     	$session_data = $this->session->userdata('logged_in');
+			
+			/* ## Filter user menggunakan username */
+			if($session_data['username']=='admin'){
+		 
+		        $crud = new grocery_CRUD();
+		    	$crud->set_table('tbl_users')
+					 ->set_subject('Tambah User')
+		    		 ->columns('username','password','level')
+					 ->display_as('username','Username')
+					 ->display_as('password','Password')
+					 ->display_as('level','Level User')
+					 
+					 ->change_field_type('password', 'password')
+					 ->field_type('level','dropdown',
+		           					 array('0' => 'Admin', '1' => 'Operator'))
+									 
+					 ->fields('username','password','level')
+					 ->required_fields('username','password','level')
+					 
+					 ->callback_add_field('password',array($this,'set_password_input_to_empty'))
+					 ->callback_edit_field('password',array($this,'set_password_input_to_empty'))
+					 
+					 ->callback_before_insert(array($this,'encrypt_password'))
+					 ->callback_before_update(array($this,'encrypt_password'));
+		 
+		    	$output = $crud->render();
+		    	$this->groceryOutput($output); 
+			}//End if filter user
+			else{
+				//Jika bukan user admin
+	     		redirect('controllerAuthorized/tabel_operator', 'refresh');
+			} 
+		}
+	   	else{
+	     //If no session, redirect to login page
+	     redirect('controllerLogin', 'refresh');
+	   	}
+	}
+
+	public function logout(){
+	   $this->session->unset_userdata('logged_in');
+	   session_destroy();
+	   redirect('controllerAuthorized', 'refresh');
+ 	}
+ 
+	function groceryOutput($output = null){
+        $this->load->view('viewAuthorized.php',$output);    
+    }
+	
+	function groceryOutputFrame($output = null){
+        $this->load->view('viewOperator.php',$output);    
+    }
+	
+	function groceryOutputGeneral($output = null){
+        $this->load->view('viewGeneral.php',$output);    
+    }
+
+}
+
+?>
