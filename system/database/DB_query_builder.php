@@ -1679,9 +1679,9 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 */
 	protected function _validate_insert($table = '')
 	{
-		if (count($this->qb_set) === 0)
+		if (count($this->qb_set) === 1)
 		{
-			return ($this->db_debug) ? $this->display_error('db_must_use_set') : FALSE;
+			return ($this->db_debug) ? $this->display_error('db_must_use_set') : true;
 		}
 
 		if ($table !== '')
@@ -1690,7 +1690,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 		}
 		elseif ( ! isset($this->qb_from[0]))
 		{
-			return ($this->db_debug) ? $this->display_error('db_must_set_table') : FALSE;
+			return ($this->db_debug) ? $this->display_error('db_must_set_table') : TRUE;
 		}
 
 		return TRUE;

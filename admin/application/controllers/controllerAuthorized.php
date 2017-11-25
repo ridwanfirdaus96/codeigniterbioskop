@@ -35,12 +35,14 @@ class controllerAuthorized extends CI_Controller {
 			$crud->unset_columns('kd_studio');
 
 				 			
-				//DATA PENAMAAN ALIAS TABLE
-		   	$crud->display_as('kd_film','Kode Film')
+				//Tambah Data
+			   $crud->display_as('kd_film','Kode Film')
+			     ->set_field_upload('gambar','assets/uploads/files')
 				 ->display_as('judul','Judul Film')
 				 ->display_as('sinopsis','Sinopsis')
 				 ->display_as('kategori','Kategori')
-				 ->display_as('tgl','Tanggal Penyangan')
+				 ->display_as('tgl_tayang','Tanggal tayang')
+				 ->display_as('tgl_beres','tanggal beres')
 				 ->display_as('jam','Jam tayang')
 				 ->display_as('nama_studio','Nama Studio')
 				 ->display_as('kd_studio','Kode Studio');
@@ -48,7 +50,7 @@ class controllerAuthorized extends CI_Controller {
 			$crud->set_relation('nama_studio','studio','nama_studio')
 				 ->set_relation('kd_studio','studio','kd_studio');
 				 					 
-			$crud->fields('kd_film','judul','sinopsis','kategori','tgl','jam','nama_studio','kd_studio') 
+			$crud->fields('kd_film','gambar','judul','sinopsis','kategori','tgl_tayang','tgl_beres','jam','nama_studio','kd_studio') 
 				 ->required_fields('nama_studio','kd_studio');
 				 
 		    $output = $crud->render();
@@ -65,52 +67,7 @@ class controllerAuthorized extends CI_Controller {
 	   }
 	 }
 	 
-	 /*
-	 public function dataKelas(){
-	   if($this->session->userdata('logged_in')) {
-	     $session_data = $this->session->userdata('logged_in');
-		 	/*$data['username'] = $session_data['username'];
-		     $this->load->view('viewAuthorized', $data);*/
-			
-			/* ## Filter user menggunakan username */
-	/*	if($session_data['username']=='admin'){
-
-		 	$crud = new grocery_CRUD();
-			/*$crud->set_theme('datatables');*/
-	/*		$crud->set_table('studio');
-			$crud->set_subject('Data Studio');
-			$crud->unset_columns('kd_studio');
-			
-$crud->set_field_upload('file_url','assets/uploads/files');
-				 			
-				//DATA PENAMAAN ALIAS TABLE
-			   $crud->display_as('kd_studio','Kode Studio')
-			   	  ->display_as('nama_studio','Nama Studio')
-				 ->display_as('jml_kursi','Jumlah Kursi');
-			
-				 
-			$crud->set_relation('nama_studio','film','nama_studio')
-			->set_relation('kd_studio','film','kd_studio')
-			->set_relation('nama_studio','kursi','nama_studio')
-			->set_relation('kd_studio','kursi','kd_studio');
-								 
-			$crud->fields('kd_studio','nama_studio','jml_kursi');
-				 
-		    $output = $crud->render();
-		    $this->groceryOutput($output); 
-			}//End if filter user
-			else{
-				//Jika bukan user admin
-	     		redirect('controllerAuthorized/userPage', 'refresh');
-			}
-	   }
-	   else{
-	     //If no session, redirect to login page
-	     redirect('controllerLogin', 'refresh');
-	   }
-	 }
-	
-*/
+	 
 	 public function datapegawai(){
 	   if($this->session->userdata('logged_in')) {
 	     $session_data = $this->session->userdata('logged_in');
@@ -189,43 +146,6 @@ $crud->set_field_upload('file_url','assets/uploads/files');
 	   }
 	 }
 	 
-	 /*
-	 public function dataFakultas(){
-	   if($this->session->userdata('logged_in')) {
-	     $session_data = $this->session->userdata('logged_in');
-		 	/*$data['username'] = $session_data['username'];
-		     $this->load->view('viewAuthorized', $data);*/
-			
-			/* ## Filter user menggunakan username */
-/*			if($session_data['username']=='admin'){
-
-		 	$crud = new grocery_CRUD();
-			$crud->set_table('tbl_fakultas');
-			$crud->set_subject('Data Fakultas');
-			$crud->columns('id_fak','nama_fakultas');
-				 			
-				//DATA PENAMAAN ALIAS TABLE
-		   	$crud->display_as('id_fak','Nomor')
-				 ->display_as('nama_fakultas','Fakultas');
-								 
-			$crud->fields('nama_fakultas') 
-				 ->required_fields('nama_fakultas');
-				 
-		    $output = $crud->render();
-		    $this->groceryOutput($output); 
-			}//End if filter user
-			else{
-		11		//Jika bukan user admin
-	     		redirect('controllerAuthorized/userPage', 'refresh');
-			}
-	   }
-	   else{
-	     //If no session, redirect to login page
-	     redirect('controllerLogin', 'refresh');
-	   }
-	 }
-	 
-*/	 
 	 public function userPage(){
 	   if($this->session->userdata('logged_in')) {
 	     $session_data = $this->session->userdata('logged_in');
@@ -250,9 +170,11 @@ $crud->set_field_upload('file_url','assets/uploads/files');
 				//DATA PENAMAAN ALIAS TABLE
 				$crud->display_as('kd_film','Kode Film')
 				->display_as('judul','Judul Film')
+				->display_as('gambar','gambar film')
 				->display_as('sinopsis','Sinopsis')
 				->display_as('kategori','Kategori')
-				->display_as('tgl','Tanggal Lahir')
+				->display_as('tgl_tayang','Tanggal Lahir')
+				->display_as('tgl_beres','tanggal beres')
 				->display_as('jam','Jam tayang')
 				->display_as('nama_studio','Nama Studio')
 				->display_as('kd_studio','Kode Studio');
@@ -260,30 +182,10 @@ $crud->set_field_upload('file_url','assets/uploads/files');
 		   $crud->set_relation('nama_studio','studio','nama_studio')
 				->set_relation('kd_studio','studio','kd_studio');
 									 
-		   $crud->fields('kd_film','judul','sinopsis','kategori','tgl','jam','nama_studio','kd_studio') 
+		   $crud->fields('kd_film','gambar','judul','sinopsis','kategori','tgl_tayang','tgl_beres','jam','nama_studio','kd_studio') 
 				->required_fields('nama_studio','kd_studio');
 		   
-			/*	$crud->display_as('nama_mhs','Nama')
-				 ->display_as('nim_mhs','NIM')
-				 ->display_as('tempat_lahir','Tempat Lahir')
-				 ->display_as('tanggal_lahir','Tanggal Lahir')
-				 ->display_as('alamat_asal','Alamat Asal')
-				 ->display_as('alamat_sekarang','Alamat Sekarang')
-				 ->display_as('telp','Telp/HP')
-				 ->display_as('email','Email')
-				 ->display_as('kelas_mhs','Kelas')
-				 ->display_as('dosen_wali','Dosen Wali')
-				 ->display_as('jurusan','Jurusan')
-				 ->display_as('fakultas','Fakultas');
 			
-			$crud->set_relation('kelas_mhs','tbl_kelas','nama_kelas')
-				 ->set_relation('dosen_wali','tbl_dosen','nama_dosen')
-				 ->set_relation('jurusan','tbl_jurusan','{nama_jur} -- {tingkatan}')
-				 ->set_relation('fakultas','tbl_fakultas','nama_fakultas');
-				 					 
-			$crud->fields('nama_mhs','nim_mhs','tempat_lahir','tanggal_lahir','alamat_asal','alamat_sekarang',
-						  'telp','email','dosen_wali','kelas_mhs','jurusan','fakultas') 
-				 ->required_fields('fakultas','jurusan','dosen_wali','kelas_mhs','nama_mhs');*/
 				 
 		    $output = $crud->render();
 		    $this->groceryOutputUser($output); 

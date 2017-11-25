@@ -8,6 +8,7 @@ class home_model extends CI_model {
 		$this->load->database();
 	}
 
+	//mendapatkan table pemesan
 	public function get_pemesan($id_pemesan = FALSE)
 	{
 			if ($id_pemesan === FALSE)
@@ -20,6 +21,7 @@ class home_model extends CI_model {
 			return $query->row_array();
 	}
 
+	//mendapatkan table film
 	public function get_film($judul = FALSE)
 	{
 		if ($judul === FALSE)
@@ -31,6 +33,7 @@ class home_model extends CI_model {
 		$query = $this->db->get_where('film', array(
 
 			'judul' -> $judul,
+			'gambar' -> $gambar,
 			'nama studio' -> $nama_studio,
 			'tgl' -> $tgl,
 			'jam' -> $jam,
@@ -39,9 +42,10 @@ class home_model extends CI_model {
 		));
 	
 		return $this->db->insert('film', $data);
-		$this->db->limit(1);
+
 	}
 
+	//mendapatkan table film
 	public function get_kursi($kd_kursi= FALSE)
 	{
 		if ($kd_kursi === FALSE)
@@ -59,6 +63,8 @@ class home_model extends CI_model {
 		return $this->db->insert('kursi', $data);
 		$this->db->limit(1);
 	}
+
+	//mengatur table pemesan
 	public function set_ticket()
 	{
 		$this->load->helper('url');
@@ -78,6 +84,7 @@ class home_model extends CI_model {
 		$this->db->limit(1);
 	}
 
+	//mengatur table film
 	public function set_movies()
 	{
 		$this->load->helper(array('url','form'));
@@ -107,6 +114,8 @@ class home_model extends CI_model {
 
 		return $this->db->insert('kursi2', $data);
 	}
+
+	//mengatur table kursi
 	public function set_kursi()
 	{
 		$this->load->helper(array('url','form'));
@@ -118,27 +127,7 @@ class home_model extends CI_model {
 		$this->db->replace('kursi', $data);
 	
 	}
-	public function set_informasi($genre = FALSE)
-	{
-		if($genre === FALSE)
-		{
-			$query = $this->db->get('informasi');
-			return $query->result_array();
-		}
-
-		$query = $this->db->get_where('informasi', array('informasi' => $genre));
-	}
-
-	public function set_image()
-	{
-		$this->load->helper(array('url','form'));
-		
-				$id = url_title($this->input->post('nama'), 'dash', TRUE);
-		
-				$data['nama'] = $this->input->post('nama');
-				
-				return $this->db->insert('image', $data);
-	}
+	
 }
 
 

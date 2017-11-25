@@ -45,34 +45,20 @@
    <h2>================= MOVIE LIST ================</h2>
 <p></p>
 	 <div class="row">
+	<?php 
+
+	foreach ($film as $film_item): ?>
 
 	 <div class="col s12 m6 l3">
-		  <a href="<?php echo base_url('home/mv01');?>">
-				<img src="<?php echo base_url('uploads/geostorm.jpg'); ?>" style="width: 440px; float: left; display: block;">
+
+		 <a href="<?php echo base_url('home/mv01');?>">
+				<img src="<?php echo base_url('/admin/assets/uploads/files/'. $film_item['gambar']);?>" style="width: 350px; float: left; display: block;">
       </a>
 		
 				
 			</div>
-	 <div class="col s12 m6 l3">
-		 		  <a href="<?php echo base_url('home/mv02');?>">
-	           <img src="<?php echo base_url('uploads/hdd-new.png'); ?>" style="width: 440px; float: left; display: block;">
-          </a>
-	   
-   </div>
-	 <div class="col s12 m6 l3">
-		 		  <a href="<?php echo base_url('home/mv03');?>">
-	 <img src="<?php echo base_url('uploads/annabelle-new.jpg'); ?>" style="width: 440px; float: left; display: block;">
-</a>
-	
-			
-   </div>
-	 <div class="col s12 m6 l3">
-		 		  <a href="<?php echo base_url('home/mv04');?>">
-	 <img src="<?php echo base_url('uploads/bladerunner.jpg'); ?>" style="width: 440px; float: left; display: block;">
-</a>
 
-				 
-    </div>
+		<?php endforeach; ?>
 
 
 <script type="text/javascript">

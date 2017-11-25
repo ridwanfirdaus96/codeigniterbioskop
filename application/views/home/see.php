@@ -29,8 +29,8 @@ foreach ($film as $film_item): ?>
 <?php endforeach; ?>
 
 
-<?php 
-$query = $this->db->query("SELECT * FROM kursi"); ?>
+
+
 
 <?php $row = $query->row(10) ; ?>
 <?php

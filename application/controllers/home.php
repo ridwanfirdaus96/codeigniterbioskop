@@ -9,34 +9,36 @@ class home extends CI_Controller{
 		echo validation_errors();
 	}
 
+	//membuat fungsi home
 	public function index()
 	{
 		$data['film'] = $this->home_model->get_film();
 		$data['pemesan'] = $this->home_model->get_pemesan();
-		$data['judul'] = 'news archive';
+		
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('home/index', $data);
 		$this->load->view('templates/footer');
 	}
 
+	//untuk melihat hasil form
 	public function see()
 	{
 		$data['film'] = $this->home_model->get_film();
 		$data['pemesan'] = $this->home_model->get_pemesan();
 		$data['kursi'] = $this->home_model->get_kursi();
-		$data['judul'] = 'news archive';
+	
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('home/see', $data);
 		$this->load->view('templates/footer');
 	}
 	
-	
+	//membuat form tiket data diri
 	public function ticket()
 	{
-		$this->load->helper('form','url');
-		$this->load->library('form_validation');
+		$this->load->helper('form','url'); //memuat form url
+		$this->load->library('form_validation'); //memuat form validasi
 	
 		$data = array(
 			'nama_pemesan' => 'firman',
@@ -48,13 +50,13 @@ class home extends CI_Controller{
 
 		);
 	
-		$this->form_validation->set_rules('nama_pemesan', 'nama_pemesan', 'required');
-		$this->form_validation->set_rules('alamat', 'alamat', 'required');
-		$this->form_validation->set_rules('jenis_kelamin', 'jenis_kelamin', 'required');
-		$this->form_validation->set_rules('no_telp', 'no_telp', 'required');
-		$this->form_validation->set_rules('email', 'email', 'required');
+		$this->form_validation->set_rules('nama_pemesan', 'nama_pemesan', 'required'); //setting aturan field
+		$this->form_validation->set_rules('alamat', 'alamat', 'required');//setting aturan field
+		$this->form_validation->set_rules('jenis_kelamin', 'jenis_kelamin', 'required');//setting aturan field
+		$this->form_validation->set_rules('no_telp', 'no_telp', 'required');//setting aturan field
+		$this->form_validation->set_rules('email', 'email', 'required');//setting aturan field
 	
-		if ($this->form_validation->run() === FALSE)
+		if ($this->form_validation->run() === FALSE) //statement saat run form validasi
 		{
 			$this->load->view('templates/header', $data);
 			$this->load->view('home/ticket');
@@ -70,6 +72,7 @@ class home extends CI_Controller{
 		}
 	}
 
+	//membuat form film
 	public function movies()
 	{
 		$this->load->helper('form');
@@ -84,13 +87,13 @@ class home extends CI_Controller{
 
 		);
 
-		$this->form_validation->set_rules('judul','judul','required');
-		$this->form_validation->set_rules('tgl','tgl','required');
-		$this->form_validation->set_rules('jam','jam','required');
-		$this->form_validation->set_rules('kd_studio','kd_studio','required');
-		$this->form_validation->set_rules('nama_studio','nama_studio','required');
+		$this->form_validation->set_rules('judul','judul','required');//setting aturan field
+		$this->form_validation->set_rules('tgl','tgl','required');//setting aturan field
+		$this->form_validation->set_rules('jam','jam','required');//setting aturan field
+		$this->form_validation->set_rules('kd_studio','kd_studio','required');//setting aturan field
+		$this->form_validation->set_rules('nama_studio','nama_studio','required');//setting aturan field
 
-		if ($this->form_validation->run() === FALSE)
+		if ($this->form_validation->run() === FALSE) //statement saat run form validasi
 		{
 			
 			$this->load->view('templates/header', $data);
@@ -106,6 +109,7 @@ class home extends CI_Controller{
     
 	}
 
+	//membuat fungsi kursi
 	public function kursi()
 	{
 		$this->load->helper('form');
@@ -153,6 +157,7 @@ class home extends CI_Controller{
 		}
 	}
 
+	//membuat fungsi ketika sukses form validasi
 	public function success()
 	{
 		$data['film'] = $this->home_model->get_film();
@@ -163,20 +168,23 @@ class home extends CI_Controller{
 		$this->load->view('templates/footer');
 	}
 	
+	//membuat fungsi admin
 	public function admin()
 	{
 		$this->load->view('home/admin');
 	}
 
+	//membuat fungsi film 1
 	public function mv01()
 	{
-		
+		$data['film'] = $this->home_model->get_film();
 
 		$this->load->view('templates/header');
-		$this->load->view('home/mv01');
+		$this->load->view('home/mv01', $data);
 		$this->load->view('templates/footer');
 	}
 
+	//membuat fungsi film 2
 	public function mv02()
 	{
 		$this->load->view('templates/header');
@@ -184,6 +192,7 @@ class home extends CI_Controller{
 		$this->load->view('templates/footer');
 	}
 
+	//membuat fungsi film 3
 	public function mv03()
 	{
 		$this->load->view('templates/header');
@@ -191,27 +200,12 @@ class home extends CI_Controller{
 		$this->load->view('templates/footer');
 	}
 
+	//membuat fungsi film 4
 	public function mv04()
 	{
 		$this->load->view('templates/header');
 		$this->load->view('home/mv04');
 		$this->load->view('templates/footer');
-	}
-
-	public function informasi()
-	{
-		$data['informasi'] = $this->home_model->get_informasi();
-		$data = array(
-			'judul' => 'Geostorm',
-			'director' => 'general',
-			'durasi' => '120 minutes',
-			'genre' => 'horror',
-			'language' => 'indonesia',
-			'sinopsis' => 'cerita ini'
-		);
-
-		$this->load->view('templates/header', $data);
-		
 	}
 
 
@@ -233,18 +227,21 @@ class home extends CI_Controller{
 		$this->load->view('home/views', $data);
 		$this->load->view('templates/footer');
 	}
+
+	//membuat fungsi form upload
 	public function upload_form()
-	{
+	{	
 		    $this->load->view('templates/header');
 			$this->load->view('home/upload_form', array('error' => ' ' ));
 			$this->load->view('templates/footer');
 									
 	}
 
+	//membuat fungsi deskripsi upload
 	public function do_upload()
-	
-		
 	{
+		
+
 			$config['upload_path']          = './uploads/';
 			$config['allowed_types']        = 'gif|jpg|png';
 			$config['max_size']             = 1000;
@@ -256,7 +253,9 @@ class home extends CI_Controller{
 
 			if ( ! $this->upload->do_upload('userfile'))
 			{
-					$error = array('error' => $this->upload->display_errors());
+				$gambar = $this->upload->data();
+				$data  ['gambar'] = $gambar['file_name'];
+				$error = array('error' => $this->upload->display_errors());
 								
                     $this->load->view('templates/header');
 					$this->load->view('home/upload_form', $error);
