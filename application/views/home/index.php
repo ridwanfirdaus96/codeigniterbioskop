@@ -51,7 +51,7 @@
 
 	 <div class="col s12 m6 l3">
 
-		 <a href="<?php echo base_url('home/mv01');?>">
+		 <a href="<?php echo base_url('home/mv');?>">
 				<img src="<?php echo base_url('/admin/assets/uploads/files/'. $film_item['gambar']);?>" style="width: 350px; float: left; display: block;">
       </a>
 		

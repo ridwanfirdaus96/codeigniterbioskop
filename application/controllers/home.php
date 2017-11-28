@@ -175,12 +175,13 @@ class home extends CI_Controller{
 	}
 
 	//membuat fungsi film 1
-	public function mv01()
+	public function mv()
 	{
+		$this->uri->segment(3);
 		$data['film'] = $this->home_model->get_film();
 
 		$this->load->view('templates/header');
-		$this->load->view('home/mv01', $data);
+		$this->load->view('home/mv', $data);
 		$this->load->view('templates/footer');
 	}
 

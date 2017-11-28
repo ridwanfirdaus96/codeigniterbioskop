@@ -52,3 +52,31 @@ nav{
 	left: 67px;
 }
 
+.datelist{
+	font-family: Verdana
+}
+
+.datelist > ul > li {
+	 border-bottom: solid 1px #333;
+	 padding: 20px 0;
+}
+
+.datelist .title span .title span a{
+	font-size: 14px;
+	color: #333;
+	font-weight: normal;
+	margin: 0;
+}
+.datelist .title a,
+.datelist .title {
+	font-size: 20px;
+	font-weight: bold;
+	color: #333333;
+	margin-right: 20px;
+}
+
+
+.datelist .title a:hover {
+	text-decoration: underline;
+}
+

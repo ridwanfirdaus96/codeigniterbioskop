@@ -43,6 +43,7 @@ class home_model extends CI_model {
 	
 		return $this->db->insert('film', $data);
 
+
 	}
 
 	//mendapatkan table film

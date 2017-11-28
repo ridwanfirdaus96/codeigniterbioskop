@@ -41,16 +41,20 @@ class controllerAuthorized extends CI_Controller {
 				 ->display_as('judul','Judul Film')
 				 ->display_as('sinopsis','Sinopsis')
 				 ->display_as('kategori','Kategori')
+				 ->display_as('director','director')
+				 ->display_as('durasi','durasi')
+				 ->display_as('rating','rating')
+				 ->display_as('subtitle','subtitle')
 				 ->display_as('tgl_tayang','Tanggal tayang')
 				 ->display_as('tgl_beres','tanggal beres')
 				 ->display_as('jam','Jam tayang')
 				 ->display_as('nama_studio','Nama Studio')
 				 ->display_as('kd_studio','Kode Studio');
 			
-			$crud->set_relation('nama_studio','studio','nama_studio')
+			$crud->set_relation('nama_studio','studio','nama_studio') //relasi table ini ke table lain
 				 ->set_relation('kd_studio','studio','kd_studio');
 				 					 
-			$crud->fields('kd_film','gambar','judul','sinopsis','kategori','tgl_tayang','tgl_beres','jam','nama_studio','kd_studio') 
+			$crud->fields('kd_film','gambar','judul','sinopsis','kategori','director','durasi','rating','subtitle','tgl_tayang','tgl_beres','jam','nama_studio','kd_studio') 
 				 ->required_fields('nama_studio','kd_studio');
 				 
 		    $output = $crud->render();
@@ -160,8 +164,8 @@ class controllerAuthorized extends CI_Controller {
 			$crud->set_table('film');
 			$crud->set_subject('Data FILM');
 			$crud->unset_columns('kd_film');
-			$crud->unset_add();
 			$crud->unset_edit();
+			$crud->unset_add();
 			$crud->unset_delete();
 			$crud->unset_print();
 			$crud->unset_export();
@@ -173,6 +177,10 @@ class controllerAuthorized extends CI_Controller {
 				->display_as('gambar','gambar film')
 				->display_as('sinopsis','Sinopsis')
 				->display_as('kategori','Kategori')
+				->display_as('director','director')
+				->display_as('durasi','durasi')
+				->display_as('rating','rating')
+				->display_as('subtitle','subtitle')
 				->display_as('tgl_tayang','Tanggal Lahir')
 				->display_as('tgl_beres','tanggal beres')
 				->display_as('jam','Jam tayang')
@@ -182,7 +190,7 @@ class controllerAuthorized extends CI_Controller {
 		   $crud->set_relation('nama_studio','studio','nama_studio')
 				->set_relation('kd_studio','studio','kd_studio');
 									 
-		   $crud->fields('kd_film','gambar','judul','sinopsis','kategori','tgl_tayang','tgl_beres','jam','nama_studio','kd_studio') 
+		   $crud->fields('kd_film','gambar','judul','sinopsis','kategori','director','durasi','rating','subtitle','tgl_tayang','tgl_beres','jam','nama_studio','kd_studio') 
 				->required_fields('nama_studio','kd_studio');
 		   
 			
