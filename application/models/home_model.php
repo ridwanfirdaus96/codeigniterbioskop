@@ -22,9 +22,9 @@ class home_model extends CI_model {
 	}
 
 	//mendapatkan table film
-	public function get_film($judul = FALSE)
+	public function get_film($kd_film = FALSE)
 	{
-		if ($judul === FALSE)
+		if ($kd_film === FALSE)
 		{
 			$query = $this->db->get('film');
 			return $query->result_array();

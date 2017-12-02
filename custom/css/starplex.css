@@ -61,12 +61,6 @@ nav{
 	 padding: 20px 0;
 }
 
-.datelist .title span .title span a{
-	font-size: 14px;
-	color: #333;
-	font-weight: normal;
-	margin: 0;
-}
 .datelist .title a,
 .datelist .title {
 	font-size: 20px;
@@ -76,7 +70,21 @@ nav{
 }
 
 
+.datelist .title span,.datelist .title span a{
+	font-size: 15px;
+	color: #333;
+	font-weight: normal;
+	margin: 0;
+}
+
+
 .datelist .title a:hover {
 	text-decoration: underline;
 }
+
+hr.style2 {
+	border-top: 3px double #8c8b8b;
+}
+
+
 

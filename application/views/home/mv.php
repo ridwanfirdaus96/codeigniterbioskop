@@ -1,6 +1,6 @@
 	<?php 
-$query = $this->db->query("select * from film");
-$row = $query->row(0, 'home_model');
+$query = $this->db->query("select * from film ");
+$row = $query->row();
 	if (isset($row)) ?>
 <center>
   <img src="<?php echo base_url('/admin/assets/uploads/files/'. $row->gambar);?>"/>w
@@ -79,14 +79,18 @@ Buy Ticket
 	</div>
 	<hr>
 <div class="datelist">
-	<ul>
-		<li> 
+	
 		<div class="title">
-	    "Blade Runner"
-	    <span>
-		ready
-	   </span>
+	    STARPLEX
+	      <span>
+		    <?php echo $row->kategori;?>/<?php echo $row->durasi;?>/ditayang sejak tanggal <?php echo $row->tgl_tayang;?>
+	      </span>
+	   </div>
+	   <p></p>
+	   <div class="row margin">
+		   <div class="col s1"><?php echo $row->jam;?></li>
 </ul>
+
 </div>
           
 

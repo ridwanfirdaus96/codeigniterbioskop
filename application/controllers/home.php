@@ -20,6 +20,7 @@ class home extends CI_Controller{
 		$this->load->view('home/index', $data);
 		$this->load->view('templates/footer');
 	}
+	
 
 	//untuk melihat hasil form
 	public function see()
@@ -175,9 +176,8 @@ class home extends CI_Controller{
 	}
 
 	//membuat fungsi film 1
-	public function mv()
+	public function mv($kd_studio=NULL)
 	{
-		$this->uri->segment(3);
 		$data['film'] = $this->home_model->get_film();
 
 		$this->load->view('templates/header');
@@ -213,7 +213,7 @@ class home extends CI_Controller{
 	public function views($judul = NULL)
 	{
 		
-		$data ['film_item'] = $this->home_model->get_film($judul);
+		$data ['film_item'] = $this->home_model->get_film($kd_studio);
 	
 
 		if (empty($data['film_item']))

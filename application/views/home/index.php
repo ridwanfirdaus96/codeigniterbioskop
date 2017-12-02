@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div class="slider" style="width: 1000px; height: 440px; margin-top: 100px; margin-bottom: 100px; margin-right: 150px; margin-left: 400px">
+<div class="slider" style="width: 1000px; height: 440px; margin-top: 100px; margin-bottom: 100px; margin-right: 150px; margin-left: 300px">
     <ul class="slides">
       <li>
         <img src="<?php echo base_url('custom/image/movie2017.jpg');?>"> 
@@ -42,7 +42,8 @@
 	</div>
 
 <center>
-   <h2>================= MOVIE LIST ================</h2>
+   <hr class="style2">Movie List</hr>
+	 <hr class="style2"></hr>
 <p></p>
 	 <div class="row">
 	<?php 
@@ -51,7 +52,7 @@
 
 	 <div class="col s12 m6 l3">
 
-		 <a href="<?php echo base_url('home/mv');?>">
+		 <a href="<?php echo site_url('home/mv/'.$film_item['kd_film']);?>">
 				<img src="<?php echo base_url('/admin/assets/uploads/files/'. $film_item['gambar']);?>" style="width: 350px; float: left; display: block;">
       </a>
 		
