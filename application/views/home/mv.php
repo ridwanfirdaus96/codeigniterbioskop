@@ -19,7 +19,6 @@ Buy Ticket
 	 <li>Genre : <?php echo $row->kategori;?></li>
 	 <li>Director : <?php echo $row->director;?></li>
 	 <li>Durasi : <?php echo $row->durasi;?></li>
-	 <li>Rating : <?php echo $row->rating;?></li>
 	 <li>Subtitle : <?php echo $row->subtitle;?></li>
 	</ul>
 </h5>

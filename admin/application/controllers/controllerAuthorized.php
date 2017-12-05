@@ -43,7 +43,6 @@ class controllerAuthorized extends CI_Controller {
 				 ->display_as('kategori','Kategori')
 				 ->display_as('director','director')
 				 ->display_as('durasi','durasi')
-				 ->display_as('rating','rating')
 				 ->display_as('subtitle','subtitle')
 				 ->display_as('tgl_tayang','Tanggal tayang')
 				 ->display_as('tgl_beres','tanggal beres')
@@ -54,7 +53,7 @@ class controllerAuthorized extends CI_Controller {
 			$crud->set_relation('nama_studio','studio','nama_studio') //relasi table ini ke table lain
 				 ->set_relation('kd_studio','studio','kd_studio');
 				 					 
-			$crud->fields('kd_film','gambar','judul','sinopsis','kategori','director','durasi','rating','subtitle','tgl_tayang','tgl_beres','jam','nama_studio','kd_studio') 
+			$crud->fields('kd_film','gambar','judul','sinopsis','kategori','director','durasi','subtitle','tgl_tayang','tgl_beres','jam','nama_studio','kd_studio') 
 				 ->required_fields('nama_studio','kd_studio');
 				 
 		    $output = $crud->render();
@@ -179,7 +178,6 @@ class controllerAuthorized extends CI_Controller {
 				->display_as('kategori','Kategori')
 				->display_as('director','director')
 				->display_as('durasi','durasi')
-				->display_as('rating','rating')
 				->display_as('subtitle','subtitle')
 				->display_as('tgl_tayang','Tanggal Lahir')
 				->display_as('tgl_beres','tanggal beres')
@@ -190,7 +188,7 @@ class controllerAuthorized extends CI_Controller {
 		   $crud->set_relation('nama_studio','studio','nama_studio')
 				->set_relation('kd_studio','studio','kd_studio');
 									 
-		   $crud->fields('kd_film','gambar','judul','sinopsis','kategori','director','durasi','rating','subtitle','tgl_tayang','tgl_beres','jam','nama_studio','kd_studio') 
+		   $crud->fields('kd_film','gambar','judul','sinopsis','kategori','director','durasi','subtitle','tgl_tayang','tgl_beres','jam','nama_studio','kd_studio') 
 				->required_fields('nama_studio','kd_studio');
 		   
 			

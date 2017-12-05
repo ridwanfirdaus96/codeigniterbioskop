@@ -40,9 +40,9 @@ class home_model extends CI_model {
 			'kd_studio' -> $kd_studio
 		
 		));
-	
+		
 		return $this->db->insert('film', $data);
-
+		
 
 	}
 
