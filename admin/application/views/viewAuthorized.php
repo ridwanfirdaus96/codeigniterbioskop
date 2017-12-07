@@ -75,14 +75,16 @@ foreach($css_files as $file): ?>
 
 			<!-- Beginning header -->
 			<div class="user-area">
-		   	<span>&lt;SETTING&gt;</span> <a href="<?php echo site_url('../../../CI/home')?>">&lt;LOGOUT&gt;</a>
+		   	<span>&lt;SETTING&gt;</span> <a href="<?php echo site_url('/../../home')?>">&lt;LOGOUT&gt;</a>
 			</div>
 
 		    <div class="menu-item">
-		        <a href="<?php echo site_url('controllerAuthorized')?>">Data Film</a> | 
+			<a href="<?php echo site_url('controllerAuthorized/datapegawai')?>">Data Pegawai</a>|
+				<a href="<?php echo site_url('controllerAuthorized/datapemesan')?>">Data Pemesan</a>|   
+				 <a href="<?php echo site_url('controllerAuthorized/datakategori')?>">Data Kategori</a> |
 				<a href="<?php echo site_url('controllerAuthorized/datastudio')?>">Data Studio</a>|
-				<a href="<?php echo site_url('controllerAuthorized/datapegawai')?>">Data Pegawai</a>  
-				 
+				<a href="<?php echo site_url('controllerAuthorized')?>">Data Film</a> | 
+				<a href="<?php echo site_url('controllerAuthorized/datajadwal')?>">Data Jadwal</a> | 
 			<!--<a href="JavaScript:popup('<?php echo site_url('controllerAuthorized/tabel_item_desk')?>',800,400)">Item Number</a> |
 			<a href="JavaScript:popup('<?php echo site_url('controllerAuthorized/tabel_operator')?>',1024,768)">Item Number</a>-->
 		    </div>

@@ -52,7 +52,7 @@
 
 	 <div class="col s12 m6 l3">
 
-		 <a href="<?php echo site_url('home/mv/'.$film_item['kd_film']);?>">
+		 <a href="<?php echo site_url('home/mv/'.$film_item['gambar']);?>">
 				<img src="<?php echo base_url('/admin/assets/uploads/files/'. $film_item['gambar']);?>" style="width: 350px; float: left; display: block;">
       </a>
 		

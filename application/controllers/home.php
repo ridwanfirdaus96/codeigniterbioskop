@@ -176,9 +176,19 @@ class home extends CI_Controller{
 	}
 
 	//membuat fungsi film 1
-	public function mv($kd_studio=NULL)
+	public function mv($gambar=NULL)
 	{
-		$data['film'] = $this->home_model->get_film();
+		
+		$data ['film_item'] = $this->home_model->get_film($gambar);
+	
+
+		if (empty($data['film_item']))
+		{
+			show_404();
+		}
+
+	
+		$data['judul'] = $data['film_item']['judul'];;
 
 		$this->load->view('templates/header');
 		$this->load->view('home/mv', $data);

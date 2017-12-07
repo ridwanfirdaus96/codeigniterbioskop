@@ -22,26 +22,17 @@ class home_model extends CI_model {
 	}
 
 	//mendapatkan table film
-	public function get_film($kd_film = FALSE)
+	public function get_film($gambar = FALSE)
 	{
-		if ($kd_film === FALSE)
+		if ($gambar === FALSE)
 		{
 			$query = $this->db->get('film');
 			return $query->result_array();
 		}
 
-		$query = $this->db->get_where('film', array(
-
-			'judul' -> $judul,
-			'gambar' -> $gambar,
-			'nama studio' -> $nama_studio,
-			'tgl' -> $tgl,
-			'jam' -> $jam,
-			'kd_studio' -> $kd_studio
+		$query = $this->db->get_where('film', array('gambar' => $gambar));
 		
-		));
-		
-		return $this->db->insert('film', $data);
+		return $query->row_array();
 		
 
 	}

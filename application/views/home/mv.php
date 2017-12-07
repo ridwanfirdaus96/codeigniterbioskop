@@ -1,25 +1,22 @@
-	<?php 
-$query = $this->db->query("select * from film ");
-$row = $query->row();
-	if (isset($row)) ?>
+
 <center>
-  <img src="<?php echo base_url('/admin/assets/uploads/files/'. $row->gambar);?>"/>w
+  <img src="<?php echo base_url('/admin/assets/uploads/files/'. $film_item['gambar']);?>"/>w
 <p>
 <a class="waves-effect waves-light btn" href="<?php echo base_url('home/ticket');?>">
 Buy Ticket
 </a>
 </center>
 <hr>
-<h4><?php echo $row->judul;?> </h3>
+<h4><?php echo $film_item['judul'];?> </h4>
 <hr>
 <div>
 <h5 class="left align">
   <ul>
 
-	 <li>Genre : <?php echo $row->kategori;?></li>
-	 <li>Director : <?php echo $row->director;?></li>
-	 <li>Durasi : <?php echo $row->durasi;?></li>
-	 <li>Subtitle : <?php echo $row->subtitle;?></li>
+	 <li>Genre : <?php echo $film_item['kategori'];?></li>
+	 <li>Director : <?php echo $film_item['director'];?></li>
+	 <li>Durasi : <?php echo $film_item['durasi'];?></li>
+	 <li>Subtitle : <?php echo $film_item['subtitle'];?></li>
 	</ul>
 </h5>
 </div>
@@ -27,10 +24,9 @@ Buy Ticket
 <div>
 <h5 class="center-align">
 
-<?php echo $row->sinopsis;?>
+<?php echo $film_item['sinopsis'];?>
 </h5>
 </div>
-
 <hr>
 <h4>Schedules</h4>
 <hr>
@@ -82,12 +78,12 @@ Buy Ticket
 		<div class="title">
 	    STARPLEX
 	      <span>
-		    <?php echo $row->kategori;?>/<?php echo $row->durasi;?>/ditayang sejak tanggal <?php echo $row->tgl_tayang;?>
+		    <?php echo $film_item['kategori'];?>/<?php echo $film_item['durasi'];?>/ditayang sejak tanggal <?php echo $film_item['tgl_tayang'];?>
 	      </span>
 	   </div>
 	   <p></p>
 	   <div class="row margin">
-		   <div class="col s1"><?php echo $row->jam;?></li>
+		   <div class="col s1"><?php echo $film_item['jam'];?></li>
 </ul>
 
 </div>

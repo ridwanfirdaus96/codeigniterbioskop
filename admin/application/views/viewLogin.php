@@ -7,11 +7,11 @@
 
 	<base href="<?php echo base_url();?>"/>
     <!-- Loading Bootstrap -->
-    <link href="<?php echo base_url('assets/flatUI/css/bootstrap.css');?>" rel="stylesheet">
+    <link href="assets/flatUI/css/bootstrap.css" rel="stylesheet">
 
     <!-- Loading Flat UI -->
-    <link href="<?php echo base_url('assets/flatUI/css/flat-ui.css');?>" rel="stylesheet">
-    <link rel="shortcut icon" href="<?php echo base_url('assets/flatUI/images/illustrations/clipboard.png');?>">
+    <link href="assets/flatUI/css/flat-ui.css" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/flatUI/images/illustrations/clipboard.png">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
@@ -44,7 +44,8 @@
             </div>
 			
 			<input class="btn btn-primary btn-large btn-block" type="submit" value="Login"/>
-      
+     
+<a href="<?php echo site_url('/../../home')?>" class="btn btn-primary btn-large btn-block">Cancel</a>
             <!--<a  href="#">Login</a>-->
             <span class="login-link">username:admin, password:admin</span>		
 			</form>
@@ -57,16 +58,16 @@
     </div> <!-- /container -->
 
     <!-- Load JS here for greater good =============================-->
-    <script src="<?php echo base_url('admin/assets/flatUI/js/jquery-1.8.2.min.js');?>"></script>
-    <script src="<?php echo base_url('admin/assets/flatUI/js/jquery-ui-1.10.0.custom.min.js');?>"></script>
-    <script src="<?php echo base_url('admin/assets/flatUI/js/jquery.dropkick-1.0.0.js');?>"></script>
-    <script src="<?php echo base_url('admin/assets/flatUI/js/custom_checkbox_and_radio.js');?>"></script>
-    <script src="<?php echo base_url('admin/assets/flatUI/js/custom_radio.js');?>"></script>
-    <script src="<?php echo base_url('admin/assets/flatUI/js/jquery.tagsinput.js');?>"></script>
-    <script src="<?php echo base_url('admin/assets/flatUI/js/bootstrap-tooltip.js');?>"></script>
-    <script src="<?php echo base_url('admijn/assets/flatUI/js/jquery.placeholder.js');?>"></script>
+    <script src="assets/flatUI/js/jquery-1.8.2.min.js"></script>
+    <script src="assets/flatUI/js/jquery-ui-1.10.0.custom.min.js"></script>
+    <script src="assets/flatUI/js/jquery.dropkick-1.0.0.js"></script>
+    <script src="assets/flatUI/js/custom_checkbox_and_radio.js"></script>
+    <script src="assets/flatUI/js/custom_radio.js"></script>
+    <script src="assets/flatUI/js/jquery.tagsinput.js"></script>
+    <script src="assets/flatUI/js/bootstrap-tooltip.js"></script>
+    <script src="assets/flatUI/js/jquery.placeholder.js"></script>
     <script src="http://vjs.zencdn.net/c/video.js"></script>
-    <script src="<?php echo base_url('admin/assets/flatUI/js/application.js');?>"></script>
+    <script src="assets/flatUI/js/application.js"></script>
     <!--[if lt IE 8]>
       <script src="assets/flatUI/js/icon-font-ie7.js"></script>
       <script src="assets/flatUI/js/icon-font-ie7-24.js"></script>
