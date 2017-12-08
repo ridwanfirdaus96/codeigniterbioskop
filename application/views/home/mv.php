@@ -32,45 +32,20 @@ Buy Ticket
 <hr>
     <div class="row">
       <div class="col s1">
-	   <strong>29</strong>
+	   <strong>
+	   <?php
+	   $query = $this->db->query("select *  FROM jadwal");
+
+	   foreach ($query->result() as $row) :?>
+
+	   <strong><?php echo $row->tgl_tayang;?></strong>
 	    <span>Nov</span>
 	   </div>
-       <div class="col s1">
-	   <strong>30</strong>
-	    <span>Nov</span>
+	  <div class="col s1">
+	  <strong><?php echo $row->tgl_berakhir;?></strong>
+	   <span>Nov</span>
 	   </div>
-	    <div class="col s1">
-	   <strong>31</strong>
-	    <span>Nov</span>
-	   </div>
-	    <div class="col s1">
-	   <strong>1</strong>
-	    <span>Des</span>
-	   </div>
-	    <div class="col s1">
-	   <strong>2</strong>
-	    <span>Des</span>
-	   </div>
-	    <div class="col s1">
-	   <strong>3</strong>
-	    <span>Des</span>
-	   </div>
-	    <div class="col s1">
-	   <strong>4</strong>
-	    <span>Des</span>
-	   </div>
-	    <div class="col s1">
-	   <strong>5</strong>
-	    <span>Des</span>
-	   </div>
-	    <div class="col s1">
-	   <strong>6</strong>
-	    <span>Des</span>
-	   </div>
-	    <div class="col s1">
-	   <strong>7</strong>
-	    <span>Des</span>
-	   </div>
+<?php endforeach;?>
 	</div>
 	<hr>
 <div class="datelist">

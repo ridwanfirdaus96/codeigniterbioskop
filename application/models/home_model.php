@@ -49,7 +49,7 @@ class home_model extends CI_model {
 			$this->db->join('kategori', 'kategori.kd_kategori = film.kd_kategori','left');
 			$this->db->join('jadwal', 'film.kd_film = jadwal.kd_film','left');
 			$query = $this->db->get();
-		return $query->row_array();
+		    return $query->row_array();
 	}
 
 	//mendapatkan table film

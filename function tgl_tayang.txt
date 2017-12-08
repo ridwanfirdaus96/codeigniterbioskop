@@ -1,0 +1,5 @@
+$period = new DatePeriod(
+     new DateTime('2010-10-01'),
+     new DateInterval('P1D'),
+     new DateTime('2010-10-05')
+);
