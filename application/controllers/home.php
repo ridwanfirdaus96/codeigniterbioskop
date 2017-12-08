@@ -12,7 +12,7 @@ class home extends CI_Controller{
 	//membuat fungsi home
 	public function index()
 	{
-		$data['film'] = $this->home_model->get_film();
+		$data['filmkategori'] = $this->home_model->get_filmkategori();
 		$data['pemesan'] = $this->home_model->get_pemesan();
 		
 
@@ -179,7 +179,7 @@ class home extends CI_Controller{
 	public function mv($gambar=NULL)
 	{
 		
-		$data ['film_item'] = $this->home_model->get_film($gambar);
+		$data ['film_item'] = $this->home_model->get_filmkategori($gambar);
 	
 
 		if (empty($data['film_item']))

@@ -1,6 +1,6 @@
 
 <center>
-  <img src="<?php echo base_url('/admin/assets/uploads/files/'. $film_item['gambar']);?>"/>w
+  <img src="<?php echo base_url('/admin/assets/uploads/files/'. $film_item['gambar']);?>"/>
 <p>
 <a class="waves-effect waves-light btn" href="<?php echo base_url('home/ticket');?>">
 Buy Ticket
@@ -13,7 +13,7 @@ Buy Ticket
 <h5 class="left align">
   <ul>
 
-	 <li>Genre : <?php echo $film_item['kategori'];?></li>
+	 <li>Genre : <?php echo $film_item['jenis_k'];?></li>
 	 <li>Director : <?php echo $film_item['director'];?></li>
 	 <li>Durasi : <?php echo $film_item['durasi'];?></li>
 	 <li>Subtitle : <?php echo $film_item['subtitle'];?></li>
@@ -78,12 +78,12 @@ Buy Ticket
 		<div class="title">
 	    STARPLEX
 	      <span>
-		    <?php echo $film_item['kategori'];?>/<?php echo $film_item['durasi'];?>/ditayang sejak tanggal <?php echo $film_item['tgl_tayang'];?>
+		    <?php echo $film_item['jenis_k'];?>/<?php echo $film_item['durasi'];?>/ditayang sejak tanggal <?php echo $film_item['tgl_tayang'];?>
 	      </span>
 	   </div>
 	   <p></p>
 	   <div class="row margin">
-		   <div class="col s1"><?php echo $film_item['jam'];?></li>
+		   <div class="col s1"><?php echo $film_item['jam_tayang'];?></li>
 </ul>
 
 </div>

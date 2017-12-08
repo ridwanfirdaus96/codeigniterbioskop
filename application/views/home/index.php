@@ -47,8 +47,7 @@
 <p></p>
 	 <div class="row">
 	<?php 
-
-	foreach ($film as $film_item): ?>
+	foreach ($filmkategori as $film_item):?>
 
 	 <div class="col s12 m6 l3">
 
@@ -57,9 +56,10 @@
       </a>
 		
 				
-			</div>
+		</div>
 
-		<?php endforeach; ?>
+<?php endforeach; ?>
+
 
 
 <script type="text/javascript">

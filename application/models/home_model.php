@@ -33,8 +33,23 @@ class home_model extends CI_model {
 		$query = $this->db->get_where('film', array('gambar' => $gambar));
 		
 		return $query->row_array();
-		
 
+	}
+
+	public function get_filmkategori($gambar = FALSE)
+	{
+		
+			if ($gambar === FALSE)
+		{
+			$query = $this->db->get('film');
+			return $query->result_array();
+		}
+		    $this->db->select('*');
+            $this->db->from('film');
+			$this->db->join('kategori', 'kategori.kd_kategori = film.kd_kategori','left');
+			$this->db->join('jadwal', 'film.kd_film = jadwal.kd_film','left');
+			$query = $this->db->get();
+		return $query->row_array();
 	}
 
 	//mendapatkan table film
