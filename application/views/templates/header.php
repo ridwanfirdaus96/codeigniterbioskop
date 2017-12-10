@@ -22,8 +22,6 @@
     <a href="<?php echo base_url('home');?>" class="brand-logo">Starplex</a>
     <ul class="right hide-on-med-and-down">
 			<li><a href="<?php echo base_url('home/ticket');?>">Ticket</a></li>
-			<li><a href="">Cinemas</a></li>
-			<li><a href="">Promotion</a></li>
 			<li><a href="<?php echo base_url('admin');?>">Admin</a></li>
 			<li><a href="<?php echo base_url('home/member');?>">Membership</a></li>
     </ul>

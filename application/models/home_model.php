@@ -36,10 +36,9 @@ class home_model extends CI_model {
 
 	}
 
-	public function get_filmkategori($gambar = FALSE)
-	{
-		
-			if ($gambar === FALSE)
+	public function get_filmkategori($judul = FALSE)
+	{	
+			if ($judul === FALSE)
 		{
 			$query = $this->db->get('film');
 			return $query->result_array();

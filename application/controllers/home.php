@@ -176,10 +176,10 @@ class home extends CI_Controller{
 	}
 
 	//membuat fungsi film 1
-	public function mv($gambar=NULL)
+	public function mv($judul=NULL)
 	{
 		
-		$data ['film_item'] = $this->home_model->get_filmkategori($gambar);
+		$data ['film_item'] = $this->home_model->get_filmkategori($judul);
 	
 
 		if (empty($data['film_item']))
