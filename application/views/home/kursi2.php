@@ -1,308 +1,185 @@
-<div class="error"><?php echo validation_errors(); ?></div>
-		<?php echo form_open('home/kursi2'); ?>
-
-<div class="plane">
-  <div class="cockpit">
-    <h2>Please select a seat</h2>
-  </div>
-  <div class="exit exit--front fuselage">
-    
-  </div>
-  <ol class="cabin fuselage">
-    <li class="row row--1">
-      <ol class="seats" type="A">
-        <li class="seat">
-          <input type="checkbox" id="1A" name="baris" value="<?php echo set_value('baris');?>" />
-          <label for="1A">1A</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="1B"  name="baris" value="<?php echo set_value('baris');?>" />
-          <label for="1B">1B</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="1C"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="1C">1C</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" disabled id="1D"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="1D">Occupied</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="1E"  name="baris" value="<?php echo set_value('baris');?>" />
-          <label for="1E">1E</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="1F"  name="baris" value="<?php echo set_value('baris');?>" />
-          <label for="1F">1F</label>
-        </li>
-      </ol>
-    </li>
-    <li class="row row--2">
-      <ol class="seats" type="A">
-        <li class="seat">
-          <input type="checkbox" id="2A"  name="baris" value="<?php echo set_value('baris');?>" />
-          <label for="2A">2A</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="2B"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="2B">2B</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="2C"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="2C">2C</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="2D"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="2D">2D</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="2E"  name="baris" value="<?php echo set_value('baris');?>" />
-          <label for="2E">2E</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="2F"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="2F">2F</label>
-        </li>
-      </ol>
-    </li>
-    <li class="row row--3">
-      <ol class="seats" type="A">
-        <li class="seat">
-          <input type="checkbox" id="3A"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="3A">3A</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="3B"  name="baris" value="<?php echo set_value('baris');?>" />
-          <label for="3B">3B</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="3C"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="3C">3C</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="3D"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="3D">3D</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="3E"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="3E">3E</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="3F"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="3F">3F</label>
-        </li>
-      </ol>
-    </li>
-    <li class="row row--4">
-      <ol class="seats" type="A">
-        <li class="seat">
-          <input type="checkbox" id="4A"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="4A">4A</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="4B"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="4B">4B</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="4C"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="4C">4C</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="4D"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="4D">4D</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="4E"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="4E">4E</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="4F"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="4F">4F</label>
-        </li>
-      </ol>
-    </li>
-    <li class="row row--5">
-      <ol class="seats" type="A">
-        <li class="seat">
-          <input type="checkbox" id="5A"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="5A">5A</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="5B"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="5B">5B</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="5C"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="5C">5C</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="5D"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="5D">5D</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="5E"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="5E">5E</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="5F"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="5F">5F</label>
-        </li>
-      </ol>
-    </li>
-    <li class="row row--6">
-      <ol class="seats" type="A">
-        <li class="seat">
-          <input type="checkbox" id="6A"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="6A">6A</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="6B"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="6B">6B</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="6C"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="6C">6C</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="6D"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="6D">6D</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="6E"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="6E">6E</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="6F"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="6F">6F</label>
-        </li>
-      </ol>
-    </li>
-    <li class="row row--7">
-      <ol class="seats" type="A">
-        <li class="seat">
-          <input type="checkbox" id="7A"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="7A">7A</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="7B"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="7B">7B</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="7C"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="7C">7C</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="7D"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="7D">7D</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="7E"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="7E">7E</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="7F"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="7F">7F</label>
-        </li>
-      </ol>
-    </li>
-    <li class="row row--8">
-      <ol class="seats" type="A">
-        <li class="seat">
-          <input type="checkbox" id="8A"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="8A">8A</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="8B"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="8B">8B</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="8C"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="8C">8C</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="8D"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="8D">8D</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="8E"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="8E">8E</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="8F"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="8F">8F</label>
-        </li>
-      </ol>
-    </li>
-    <li class="row row--9">
-      <ol class="seats" type="A">
-        <li class="seat">
-          <input type="checkbox" id="9A"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="9A">9A</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="9B"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="9B">9B</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="9C"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="9C">9C</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="9D"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="9D">9D</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="9E"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="9E">9E</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="9F"   name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="9F">9F</label>
-        </li>
-      </ol>
-    </li>
-    <li class="row row--10">
-      <ol class="seats" type="A">
-        <li class="seat">
-          <input type="checkbox" id="10A"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="10A">10A</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="10B"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="10B">10B</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="10C"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="10C">10C</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="10D"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="10D">10D</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="10E"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="10E">10E</label>
-        </li>
-        <li class="seat">
-          <input type="checkbox" id="10F"  name="baris" value="<?php echo set_value('baris');?>"/>
-          <label for="10F">10F</label>
-        </li>
-      </ol>
-    </li>
-  </ol>
-  <div class="exit exit--back fuselage">
-    
-  </div>
+<body>
+ <form action="#">
+    <center>
+<img src="<?php echo base_url('custom/image/screen.png');?>">
+<div style="margin: 50px 50px 75px 100px;">
+  <div class="row">
+    <div class="container">
+      <div class="col s1">
+            <input class="with-gap" type="radio" id="test1" />
+            <label for="test1">1</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test2" />
+            <label for="test2">2</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test3" />
+            <label for="test3">3</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test4" />
+            <label for="test4">4</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test5" />
+            <label for="test6">5</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test6" />
+            <label for="test7">6</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test7" />
+            <label for="test8">7</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test8" />
+            <label for="test9">8</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test9" />
+            <label for="test10">9</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test10" />
+            <label for="test11">10</label>
+       </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="container">
+      <div class="col s1">
+            <input class="with-gap" type="radio" id="test11" />
+            <label for="test11">11</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test12" />
+            <label for="test12">12</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test13" />
+            <label for="test13">13</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test14" />
+            <label for="test14">14</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test15" />
+            <label for="test15">15</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test16" />
+            <label for="test16">16</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test17" />
+            <label for="test17">17</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test18" />
+            <label for="test18">18</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test19" />
+            <label for="test19">19</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test20" />
+            <label for="test20">20</label>
+      </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="container">
+      <div class="col s1">
+            <input class="with-gap" type="radio" id="test21" />
+            <label for="test21">21</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test22" />
+            <label for="test22">22</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test33" />
+            <label for="test23">23</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test24" />
+            <label for="test24">24</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test25" />
+            <label for="test25">25</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test26" />
+            <label for="test26">26</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test27" />
+            <label for="test27">27</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test28" />
+            <label for="test28">28</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test29" />
+            <label for="test29">29</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test30" />
+            <label for="test30">30</label>
+      </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="container">
+      <div class="col s1">
+            <input class="with-gap" type="radio" id="test31" />
+            <label for="test31">31</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test32" />
+            <label for="test32">32</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test33" />
+            <label for="test33">33</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test34" />
+            <label for="test34">34</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test35" />
+            <label for="test35">35</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test36" />
+            <label for="test36">36</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test37" />
+            <label for="test37">37</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test38" />
+            <label for="test38">38</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test39" />
+            <label for="test39">39</label>
+      </div>
+       <div class="col s1">
+            <input class="with-gap" type="radio" id="test40" />
+            <label for="test40">40</label>
+      </div>
+    </div>
+   </div>
 </div>
-<style>
-label {
-  font-size: 0.8rem;
-  color: #9e9e9e !important;
-}
-</style>
-
-        <br> Total
-        <input value="Rp. " readonly type="text" id="total" />
-      
-      <input type="submit" value="Order">
+    </center>
 </form>
+</body>

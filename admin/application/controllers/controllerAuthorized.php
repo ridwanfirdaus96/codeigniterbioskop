@@ -88,7 +88,7 @@ class controllerAuthorized extends CI_Controller {
 							  
 				 //DATA PENAMAAN ALIAS TABLE
 				$crud->display_as('id_jadwal','ID Jadwal')
-				->display_as('kd_film','Film')
+				  ->display_as('kd_film','Film')
 				  ->display_as('tgl_tayang','Tanggal Mulai')
 				  ->display_as('tgl_berakhir','Tanggal Terakhir')
 				  ->display_as('jam_tayang','Jam Tayang')
@@ -96,7 +96,7 @@ class controllerAuthorized extends CI_Controller {
 								  
 
 				  $crud->set_relation('kd_studio','studio','{nama_studio}')
-				  ->set_relation('kd_film','film','{gambar}-{judul}-{sinopsis}-{kd_kategori}');
+				  ->set_relation('kd_film','film','{judul}');
 
 			 $crud->fields('id_jadwal','kd_film','tgl_tayang','tgl_berakhir','jam_tayang','kd_studio')
 			 ->required_fields('id_jadwal','kd_studio','kd_film');

@@ -36,17 +36,21 @@ class home_model extends CI_model {
 
 	}
 
-	public function get_filmkategori($judul = FALSE)
+	public function get_filmkategori($gambar = FALSE)
 	{	
-			if ($judul === FALSE)
+			if ($gambar === FALSE)
 		{
 			$query = $this->db->get('film');
+				if($query->num_rows()>0)
+		{
 			return $query->result_array();
 		}
+			
+		}
 		    $this->db->select('*');
-            $this->db->from('film');
-			$this->db->join('kategori', 'kategori.kd_kategori = film.kd_kategori','left');
-			$this->db->join('jadwal', 'film.kd_film = jadwal.kd_film','left');
+			$this->db->from('film');
+			$this->db->join('kategori', 'kategori.kd_kategori = film.kd_kategori');
+			$this->db->join('jadwal', 'film.kd_film = jadwal.kd_film');
 			$query = $this->db->get();
 		    return $query->row_array();
 	}
@@ -107,6 +111,17 @@ class home_model extends CI_model {
 
 		return $this->db->insert('film', $data);
 		$this->db->limit(1);
+	}
+		public function set_kursi3()
+	{
+		$this->load->helper(array('url','form'));
+
+		$kd_kursi = url_title($this->input->post('baris'), 'dash', TRUE);
+
+		$data['baris'] = $this->input->post('baris');
+		
+
+		return $this->db->insert('kursi3', $data);
 	}
 
 	public function set_kursi2()

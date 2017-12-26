@@ -1,79 +1,315 @@
 
-<div class="error"><?php echo validation_errors(); ?></div>
-		<?php echo form_open('home/kursi'); ?>
-    <body class="teal lighten-2">
+<!DOCTYPE html>
 
-	<div class="container" style="margin-top:90px;">
-		<div class="row">
-			<div class="col s12 m6 offset-m3">
-			
-			
-		<div class="card-panel z-depth-5">
-		<h4 class="center"> Silahkan Pilih kursi</h4>
-	
-<div class="row">
-  <form class="col s12 m12">
-    <div class="row">
+<head>
 
+ 
 
-      <div class="input-field col s12 m12">
-        <i class="mdi-action-account-circle prefix"></i>	
-		<select name="baris">
-      <option value="<?php echo set_value('baris');?>" disabled selected>Choose your option</option>
-      <?php echo kursi1();?>
-    </select>
-    <label>	Pilih Kursi</label>
-  </div>
-      
-      
-      
-			
-</div>
-			<!--<div class="col s12">
-          <label for="tnc_select">T&C *</label>
-            <p>
-              <input type="checkbox" class="checkbox" id="cagree" name="cagree" data-error=".errorTxt9" /> 
-              <label for="cagree">Please agree to our policy</label>
-            </p>
-              <div class="input-field">
-                <div class="errorTxt6"></div>
-                </div>
-      </div>-->
-			</div><!--row-->
- <button class="btn waves-effect waves-light center" type="submit" name="submit" value="pemesan" />Next
-    <i class="fa fa-sign-in right"></i>
-  </button>
-</div><!--card-->
-    </div>
-  </form>
+  <title>
+
+   Cinema Seating Plan Canvas
+
+  </title>
+
    
-  <?php
-//functions to loop day,month,year
-function kursi1(){
-    for($i=1; $i<=10; $i++){
-        $selected = ($i==date('n'))? ' selected' :'';
-        echo '<option'.$selected.' value="'.$i.'">'.$i.'</option>'."\n";
-    }
-}
-?>
+
+  <script type="application/javascript" language="javascript">
 
 
-</div><!--col-->
-  </div><!--row-->
-	</div><!--conatiner-->
-	
-	
-			 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-60673008-2', 'auto');
-  ga('send', 'pageview');
-</script>
-	    
-	    
-	    
-    </body>
-  </html>
-        
+
+   window.onload = draw;
+
+   function draw() {
+
+    var canvas = document.getElementById("canvas1");
+
+    var ctx = canvas.getContext("2d");
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";   //row 1 seat 1
+
+    ctx.fillRect (36, 10, 22, 22);     
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";   //row 1 seat 2
+
+    ctx.fillRect (70, 10, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 1 seat 3
+
+    ctx.fillRect (105, 10, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 1 seat 4
+
+    ctx.fillRect (139, 10, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 1 seat 5
+
+    ctx.fillRect (173, 10, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 1 seat 6, first seat after isle
+
+    ctx.fillRect (250, 10, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 1 seat 7
+
+    ctx.fillRect (284, 10, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 1 seat 8
+
+    ctx.fillRect (317, 10, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 1 seat 9
+
+    ctx.fillRect (351, 10, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 1 seat 10
+
+    ctx.fillRect (385, 10, 22, 22);
+
+
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 2 seat 1
+
+    ctx.fillRect (36, 40, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 2 seat 2
+
+    ctx.fillRect (70, 40, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 2 seat 3
+
+    ctx.fillRect (105, 40, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 2 seat 4
+
+    ctx.fillRect (139, 40, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 2 seat 5
+
+    ctx.fillRect (173, 40, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 2 seat 6, first seat after isle
+
+    ctx.fillRect (250, 40, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 2 seat 7
+
+    ctx.fillRect (284, 40, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 2 seat 8
+
+    ctx.fillRect (317, 40, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 2 seat 9
+
+    ctx.fillRect (351, 40, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 2 seat 10
+
+    ctx.fillRect (385, 40, 22, 22);
+
+     
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 3 seat 1
+
+    ctx.fillRect (36, 70, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 3 seat 2
+
+    ctx.fillRect (70, 70, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 3 seat 3
+
+    ctx.fillRect (105, 70, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";   //row 3 seat 4
+
+    ctx.fillRect (139, 70, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";   //row 3 seat 5
+
+    ctx.fillRect (173, 70, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 3 seat 6, first seat after isle
+
+    ctx.fillRect (250, 70, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 3 seat 7
+
+    ctx.fillRect (284, 70, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 3 seat 8
+
+    ctx.fillRect (317, 70, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 3 seat 9
+
+    ctx.fillRect (351, 70, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 3 seat 10
+
+    ctx.fillRect (385, 70, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 4 seat 1
+
+    ctx.fillRect (36, 100, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 4 seat 2
+
+    ctx.fillRect (70, 100, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 4 seat 3
+
+    ctx.fillRect (105, 100, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 4 seat 4
+
+    ctx.fillRect (139, 100, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 4 seat 5
+
+    ctx.fillRect (173, 100, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 4 seat 6, first seat after isle
+
+    ctx.fillRect (250, 100, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 4 seat 7
+
+    ctx.fillRect (284, 100, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 4 seat 8
+
+    ctx.fillRect (317, 100, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 4 seat 9
+
+    ctx.fillRect (351, 100, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 4 seat 10
+
+    ctx.fillRect (385, 100, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 5 seat 1
+
+    ctx.fillRect (36, 130, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 5 seat 2
+
+    ctx.fillRect (70, 130, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 5 seat 3
+
+    ctx.fillRect (105, 130, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 5 seat 4
+
+    ctx.fillRect (139, 130, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 5 seat 5
+
+    ctx.fillRect (173, 130, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 5 seat 6, first seat after isle
+
+    ctx.fillRect (250, 130, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";   //row 5 seat 7
+
+    ctx.fillRect (284, 130, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";   //row 5 seat 8
+
+    ctx.fillRect (317, 130, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 5 seat 9
+
+    ctx.fillRect (351, 130, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 5 seat 10
+
+    ctx.fillRect (385, 130, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 6 seat 1
+
+    ctx.fillRect (36, 160, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 6 seat 2
+
+    ctx.fillRect (70, 160, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 6 seat 3
+
+    ctx.fillRect (105, 160, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 6 seat 4
+
+    ctx.fillRect (139, 160, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 6 seat 5
+
+    ctx.fillRect (173, 160, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 6 seat 6, first seat after isle
+
+    ctx.fillRect (250, 160, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 6 seat 7
+
+    ctx.fillRect (284, 160, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 6 seat 8
+
+    ctx.fillRect (317, 160, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 6 seat 9
+
+    ctx.fillRect (351, 160, 22, 22);
+
+    ctx.fillStyle = "rgba(110,131,154,0.6)";    //row 6 seat 10
+
+    ctx.fillRect (385, 160, 22, 22);
+
+    ctx.fillStyle = "rgba(0,0,0,0.5)";  //screen
+
+    ctx.fillRect (36, 200, 372, 22);
+
+    var ctx = canvas.getContext("2d");
+
+    ctx.font = "20px Arial";
+
+    ctx.fillText("Screen",190,220);
+
+    ctx.fillStyle = "red";
+
+   }
+
+  </script>
+
+   
+
+  <p>
+<center>
+        <span>Silahkan Pilih Kursi</span>
+</center>
+ 
+<center>
+        <form action="movies.html">
+
+            <input type="submit" value="Click">
+
+        </form>
+</center>
+</p>
+
+   
+
+</head>
+
+<body>
+<center>
+<canvas id = "canvas1" width="450" height="300">
+</canvas>
+<cnter>
+</body>﻿
+
+</html>

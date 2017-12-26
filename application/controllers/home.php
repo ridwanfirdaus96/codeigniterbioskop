@@ -157,6 +157,27 @@ class home extends CI_Controller{
 			$this->load->view('home/success');
 		}
 	}
+	public function kursi3()
+	{
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+
+		$data['baris'] ='2D';
+
+		$this->form_validation->set_rules('baris','baris','required');
+
+		if ($this->form_validation->run() === FALSE)
+		{
+			
+			$this->load->view('templates/header', $data);
+			$this->load->view('home/kursi3');
+			$this->load->view('templates/footer');
+		}
+		else{
+			$this->home_model->set_kursi3();
+			$this->load->view('home/success');
+		}
+	}
 
 	//membuat fungsi ketika sukses form validasi
 	public function success()
@@ -176,10 +197,10 @@ class home extends CI_Controller{
 	}
 
 	//membuat fungsi film 1
-	public function mv($judul=NULL)
+	public function mv($gambar=NULL)
 	{
-		
-		$data ['film_item'] = $this->home_model->get_filmkategori($judul);
+		echo $gambar;
+		$data ['film_item'] = $this->home_model->get_filmkategori($gambar);
 	
 
 		if (empty($data['film_item']))
@@ -188,7 +209,7 @@ class home extends CI_Controller{
 		}
 
 	
-		$data['judul'] = $data['film_item']['judul'];;
+		$data['gambar'] = $data['film_item']['gambar'];;
 
 		$this->load->view('templates/header');
 		$this->load->view('home/mv', $data);
